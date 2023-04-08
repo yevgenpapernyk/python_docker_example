@@ -1,0 +1,7 @@
+services:
+  app:
+    image: pugn/flask-app-first
+    restart: unless-stopped
+    ports:
+      - 5000:5000
+

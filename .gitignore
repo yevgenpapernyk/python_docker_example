@@ -1,0 +1,12 @@
+# python
+*.pyc
+
+# PyCharm
+.idea/
+
+# MacOS
+.DS_Store
+
+# Mongo deployment
+mongo_data/
+

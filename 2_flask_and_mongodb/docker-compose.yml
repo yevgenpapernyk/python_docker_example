@@ -1,0 +1,22 @@
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    environment:
+      # better put credentials into an .env file using 'env_file: ...' here
+      - MONGO_URI=mongodb://db
+    ports:
+      - 5000:5000
+
+  db:
+    image: mongo:6
+    restart: unless-stopped
+    volumes:
+      - ./mongo_data:/data/db
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
+
