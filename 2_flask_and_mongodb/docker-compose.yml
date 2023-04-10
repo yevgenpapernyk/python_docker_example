@@ -2,6 +2,8 @@ services:
   app:
     build: .
     restart: unless-stopped
+    depends_on:
+      - db
     environment:
       # better put credentials into an .env file using 'env_file: ...' here
       - MONGO_URI=mongodb://db
