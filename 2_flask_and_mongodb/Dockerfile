@@ -4,6 +4,9 @@ FROM python:3.11
 # set timezone
 ENV TZ="Europe/Berlin"
 
+# set working directory
+WORKDIR /app
+
 # install requirements
 COPY requirements.txt .
 RUN pip install -r requirements.txt
